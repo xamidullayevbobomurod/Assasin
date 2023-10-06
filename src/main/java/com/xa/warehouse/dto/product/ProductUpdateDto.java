@@ -24,7 +24,7 @@ public class ProductUpdateDto extends GenericDto {
     private Long id;
 
     @NotNull(message = "Image must not be null")
-    private List<ImageGetDto> image;
+    private List<ImageGetDto> images;
 
     @NotNull(message = "Name must not be null")
     private String name;

@@ -18,9 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductCreateDto extends BaseDto {
 
-
-
-
+    private List<ImageGetDto> images;
     @NotNull(message = "Name must not be null")
     private String name;
     @NotNull(message = "Amount must not be null")
