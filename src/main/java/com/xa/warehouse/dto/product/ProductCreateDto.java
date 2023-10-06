@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -19,6 +20,8 @@ public class ProductCreateDto extends BaseDto {
 
 
     private List<ImageGetDto> image;
+
+    @NotNull(message = "Name must not be null")
     private String name;
     private Integer amount;
     private Double purchase_price;
