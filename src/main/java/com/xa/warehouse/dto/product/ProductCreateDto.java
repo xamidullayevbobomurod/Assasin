@@ -19,14 +19,19 @@ import java.util.List;
 public class ProductCreateDto extends BaseDto {
 
 
-    private List<ImageGetDto> image;
+
 
     @NotNull(message = "Name must not be null")
     private String name;
+    @NotNull(message = "Amount must not be null")
     private Integer amount;
+    @NotNull(message = "Purchase price must not be null")
     private Double purchase_price;
+    @NotNull(message = "Selling price must not be null")
     private Double selling_price;
+    @NotNull(message = "Status must not be null")
     private String status;
+    @NotNull(message = "Expired date must not be null")
     private LocalDateTime expired_date;
 
 }
