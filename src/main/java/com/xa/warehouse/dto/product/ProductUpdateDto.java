@@ -2,7 +2,6 @@ package com.xa.warehouse.dto.product;
 
 import com.xa.warehouse.dto.GenericDto;
 import com.xa.warehouse.dto.image.ImageGetDto;
-import com.xa.warehouse.entity.image.Image;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,6 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -19,10 +17,6 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductUpdateDto extends GenericDto {
 
-
-
-    @NotNull(message = "Id must not be null")
-    private Long id;
 
     @NotNull(message = "Image must not be null")
     private List<ImageGetDto> images;
@@ -34,15 +28,15 @@ public class ProductUpdateDto extends GenericDto {
     private Integer amount;
 
     @NotNull(message = "Purchase_price must not be null")
-    private Double purchase_price;
+    private Double purchasePrice;
 
     @NotNull(message = "Selling_price must not be null")
-    private Double selling_price;
+    private Double sellingPrice;
 
     @NotNull(message = "Status must not be null")
     private String status;
 
     @NotNull(message = "Expired_date must not be null")
-    private LocalDate expired_date;
+    private LocalDate expiredDate;
 
 }

@@ -32,11 +32,11 @@ public class Product extends Auditable {
 
 
     @Column(nullable = false)
-    private Double purchase_price;
+    private Double purchasePrice;
 
 
     @Column(nullable = false)
-    private Double selling_price;
+    private Double sellingPrice;
 
 
     @Column(nullable = false)
@@ -44,7 +44,7 @@ public class Product extends Auditable {
 
 
     @Column(nullable = false)
-    private LocalDate expired_date;
+    private LocalDate expiredPate;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Image> images;
