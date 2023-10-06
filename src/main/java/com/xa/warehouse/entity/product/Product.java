@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.Where;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -43,7 +44,7 @@ public class Product extends Auditable {
 
 
     @Column(nullable = false)
-    private LocalDateTime expired_date;
+    private LocalDate expired_date;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Image> images;

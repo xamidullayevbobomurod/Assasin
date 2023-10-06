@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -42,6 +43,6 @@ public class ProductUpdateDto extends GenericDto {
     private String status;
 
     @NotNull(message = "Expired_date must not be null")
-    private LocalDateTime expired_date;
+    private LocalDate expired_date;
 
 }

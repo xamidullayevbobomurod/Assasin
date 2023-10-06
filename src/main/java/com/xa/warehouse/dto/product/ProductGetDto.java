@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,5 +26,5 @@ public class ProductGetDto extends GenericDto {
     private Double purchase_price;
     private Double selling_price;
     private String status;
-    private LocalDateTime expired_date;
+    private LocalDate expired_date;
 }
