@@ -1,9 +1,12 @@
 package com.xa.warehouse.controller.image;
 
+import com.xa.warehouse.dto.image.ImageGetDto;
 import com.xa.warehouse.entity.image.Image;
+import com.xa.warehouse.response.Data;
 import com.xa.warehouse.service.image.ImageService;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,30 +21,10 @@ public class ImageController {
     }
 
     @PostMapping("upload/")
-    public Image uploadPhoto(MultipartFile file) {
+    public ResponseEntity<Data<ImageGetDto>> uploadPhoto(MultipartFile file) {
 
-        return service.create(file);
+        return new ResponseEntity<>(new Data<>(service.create(file)), HttpStatus.OK);
     }
-
-
-
-
-
-//@PostMapping("upload/")
-//public ResponseEntity<String> uploadImage(@RequestParam("file") MultipartFile file) {
-//    try {
-//
-//        if (file.isEmpty()) {
-//            return ResponseEntity.badRequest().body("Please select a file to upload.");
-//        }
-//
-//        return ResponseEntity.ok("File uploaded successfully: " + file.getOriginalFilename());
-//    } catch (Exception e) {
-//        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-//                .body("Failed to upload the file: " + e.getMessage());
-//    }
-//}
-
 
 
 

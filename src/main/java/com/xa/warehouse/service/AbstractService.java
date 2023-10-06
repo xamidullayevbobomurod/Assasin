@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @RequiredArgsConstructor
 public abstract class AbstractService<M extends BaseMapper, R extends JpaRepository> extends BaseService {
 
-    private final M mapper;
-    private final R repository;
+    protected final M mapper;
+    protected final R repository;
 
 }

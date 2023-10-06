@@ -1,8 +1,11 @@
 package com.xa.warehouse.service.image;
 
 
+import com.xa.warehouse.dto.image.ImageGetDto;
 import com.xa.warehouse.entity.image.Image;
+import com.xa.warehouse.mapper.image.ImageMapper;
 import com.xa.warehouse.repository.ImageRepository;
+import com.xa.warehouse.service.AbstractService;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -14,18 +17,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
-public class ImageService {
-//    private final String pathUpload = "C:\\Users\\HP\\Desktop\\upload\\";
+public class ImageService extends AbstractService<ImageMapper, ImageRepository> {
     private final Path root = Paths.get("C:\\Users\\HP\\Desktop\\upload\\");
 
-    private final ImageRepository repository;
-
-    public ImageService(ImageRepository repository) {
-        this.repository = repository;
+    public ImageService(ImageMapper mapper, ImageRepository repository) {
+        super(mapper, repository);
     }
 
-
-    public Image create(MultipartFile file) {
+    public ImageGetDto create(MultipartFile file) {
 
         try {
 
@@ -49,7 +48,7 @@ public class ImageService {
             );
 
 
-            return repository.save(image);
+            return mapper.toGetDTO(repository.save(image));
 
         } catch (Exception e) {
             return null;
