@@ -2,6 +2,7 @@ package com.xa.warehouse.dto.image;
 
 
 import com.xa.warehouse.dto.BaseDto;
+import com.xa.warehouse.dto.GenericDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

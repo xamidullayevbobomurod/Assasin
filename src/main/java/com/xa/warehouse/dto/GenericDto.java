@@ -13,4 +13,5 @@ import lombok.Setter;
 public class GenericDto extends BaseDto {
     private Long id;
 
+
 }
