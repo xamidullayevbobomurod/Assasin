@@ -44,7 +44,7 @@ public class Product extends Auditable {
 
 
     @Column(nullable = false)
-    private LocalDate expiredPate;
+    private LocalDate expiredDate;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Image> images;
