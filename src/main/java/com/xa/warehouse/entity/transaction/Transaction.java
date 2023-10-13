@@ -1,12 +1,14 @@
 package com.xa.warehouse.entity.transaction;
 
 import com.xa.warehouse.entity.Auditable;
-import com.xa.warehouse.entity.product.Product;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import java.util.List;
 
 @Getter
@@ -16,7 +18,8 @@ import java.util.List;
 @Entity
 public class Transaction extends Auditable {
 
-    private List<Product> Products;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<SoldProduct> soldProducts;
     private Double totalPrice;
 
 
