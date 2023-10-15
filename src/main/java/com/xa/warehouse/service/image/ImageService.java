@@ -51,7 +51,7 @@ public class ImageService extends AbstractService<ImageMapper, ImageRepository> 
             return mapper.toGetDTO(repository.save(image));
 
         } catch (Exception e) {
-            return null;
+            throw new RuntimeException(e);
         }
 
 

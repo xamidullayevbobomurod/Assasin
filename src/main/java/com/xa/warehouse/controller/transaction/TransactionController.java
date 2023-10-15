@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/transaction")
+@RequestMapping("api/v1/transaction/")
 public class TransactionController {
 
     private TransactionService transactionService;
@@ -26,7 +26,7 @@ public class TransactionController {
         return new ResponseEntity<>(new Data<>(transactionService.update(updateDto)), HttpStatus.OK);
     }
 
-    @GetMapping("get/")
+    @GetMapping("get/{id}")
     public ResponseEntity<Data<TransactionGetDto>> get(@PathVariable Long id) {
         return new ResponseEntity<>(new Data<>(transactionService.getById(id)), HttpStatus.OK);
     }
