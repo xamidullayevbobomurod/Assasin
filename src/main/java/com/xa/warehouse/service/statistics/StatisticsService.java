@@ -1,24 +1,12 @@
 package com.xa.warehouse.service.statistics;
 
-import com.xa.warehouse.mapper.statistics.StatisticsMapper;
-import com.xa.warehouse.repository.StatisticsRepository;
-import com.xa.warehouse.service.AbstractService;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class StatisticsService extends AbstractService<StatisticsMapper, StatisticsRepository> {
+public class StatisticsService  {
 
 
-    private final StatisticsMapper statisticsMapper;
-    private final StatisticsRepository statisticsRepository;
-
-
-    public StatisticsService(StatisticsMapper mapper, StatisticsRepository repository, StatisticsMapper statisticsMapper, StatisticsRepository statisticsRepository) {
-        super(mapper, repository);
-        this.statisticsMapper = statisticsMapper;
-        this.statisticsRepository = statisticsRepository;
-    }
 
     public double calculateMean(List<Double> numbers) {
         double sum = 0.0;

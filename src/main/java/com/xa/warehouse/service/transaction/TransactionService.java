@@ -34,6 +34,10 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         this.productRepository = productRepository;
     }
 
+
+
+
+
     public TransactionGetDto create(TransactionCreateDto dto) {
         List<Product> products = new ArrayList<Product>();
 
@@ -53,13 +57,15 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         return mapper.toGetDTO(result);
     }
 
+
+
+
     public TransactionGetDto update(TransactionUpdateDto dto) {
         // Vazrat Api qo'shish kerak
         return null;
     }
 
     public TransactionGetDto getById(Long id) {
-
 
         Optional<Transaction> o = repository.findById(id);
         if (o.isPresent()) {
@@ -69,6 +75,11 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         }
 
     }
+
+
+
+
+
 
     public List<TransactionGetDto> getWithDate(LocalDate s, LocalDate e) {
 
@@ -81,6 +92,7 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         return mapper.toListDTO(result);
     }
 
+    
 }
 
 

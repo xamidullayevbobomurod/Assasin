@@ -14,7 +14,7 @@ import java.util.List;
 
 public class StatisticsCreateDto extends BaseDto {
     private List<Product> data;
-    private double totalPrice;
+    private Double totalPrice;
 
 }
 

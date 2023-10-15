@@ -22,6 +22,8 @@ public class Transaction extends Auditable {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<SoldProduct> soldProducts;
+
+
     private Double totalPrice;
 
     @Column(name = "transaction_date")

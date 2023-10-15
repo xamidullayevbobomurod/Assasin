@@ -22,6 +22,7 @@ public class StatisticsController {
         return statisticsService.calculateMean(numbers);
     }
 
+
     @GetMapping("median/")
     public double calculateMedian(@RequestBody List<Double> numbers) {
         return statisticsService.calculateMedian(numbers);
@@ -40,9 +41,6 @@ public class StatisticsController {
 
     }
 }
-
-
-
 
 
 //    @PostMapping("mean/")
