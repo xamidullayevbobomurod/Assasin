@@ -34,17 +34,17 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         this.productRepository = productRepository;
     }
 
-    public TransactionGetDto create(TransactionCreateDto dto){
+    public TransactionGetDto create(TransactionCreateDto dto) {
         List<Product> products = new ArrayList<Product>();
 
         Transaction transaction = mapper.fromCreateDTO(dto);
         for (SoldProduct s : transaction.getSoldProducts()) {
             Optional<Product> p = productRepository.findById(s.getId());
-            if (p.isPresent() && p.get().getStatus().equals("active") && p.get().getAmount()>=s.getAmount() && (p.get().getExpiredDate().isBefore(LocalDate.now()))) {
+            if (p.isPresent() && p.get().getStatus().equals("active") && p.get().getAmount() >= s.getAmount() && (p.get().getExpiredDate().isBefore(LocalDate.now()))) {
                 Product product = p.get();
-                product.setAmount(product.getAmount()-s.getAmount());
+                product.setAmount(product.getAmount() - s.getAmount());
                 products.add(product);
-            }else{
+            } else {
                 throw new NotFoundException("Check product please:" + s.getId());
             }
         }
@@ -53,24 +53,24 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         return mapper.toGetDTO(result);
     }
 
-    public TransactionGetDto update(TransactionUpdateDto dto){
+    public TransactionGetDto update(TransactionUpdateDto dto) {
         // Vazrat Api qo'shish kerak
         return null;
     }
 
-    public TransactionGetDto getById(Long id){
+    public TransactionGetDto getById(Long id) {
 
 
         Optional<Transaction> o = repository.findById(id);
-        if(o.isPresent()){
+        if (o.isPresent()) {
             return mapper.toGetDTO(o.get());
-        }else {
+        } else {
             throw new NotFoundException("Transaction not found");
         }
 
     }
 
-    public List<TransactionGetDto> getWithDate(LocalDate s, LocalDate e){
+    public List<TransactionGetDto> getWithDate(LocalDate s, LocalDate e) {
 
         LocalDateTime sd = LocalDateTime.of(s, LocalTime.MIDNIGHT);
         LocalDateTime ed = LocalDateTime.of(e, LocalTime.MIDNIGHT);//00:00
