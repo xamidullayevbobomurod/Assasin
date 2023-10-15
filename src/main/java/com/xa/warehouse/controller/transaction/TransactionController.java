@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("api/v1/transaction")
 public class TransactionController {
@@ -18,23 +16,19 @@ public class TransactionController {
     private TransactionService transactionService;
 
     @PostMapping("create/")
-    public ResponseEntity<Data<TransactionGetDto>> create(@RequestBody TransactionCreateDto createDto){
+    public ResponseEntity<Data<TransactionGetDto>> create(@RequestBody TransactionCreateDto createDto) {
         return new ResponseEntity<>(new Data<>(transactionService.create(createDto)), HttpStatus.OK);
 
     }
+
     @PutMapping("update/")
-    public ResponseEntity<Data<TransactionGetDto>> update(@RequestBody TransactionUpdateDto updateDto){
+    public ResponseEntity<Data<TransactionGetDto>> update(@RequestBody TransactionUpdateDto updateDto) {
         return new ResponseEntity<>(new Data<>(transactionService.update(updateDto)), HttpStatus.OK);
     }
 
     @GetMapping("get/")
-    public ResponseEntity<Data<TransactionGetDto>> get(@PathVariable Long id){
+    public ResponseEntity<Data<TransactionGetDto>> get(@PathVariable Long id) {
         return new ResponseEntity<>(new Data<>(transactionService.getById(id)), HttpStatus.OK);
-    }
-
-    @GetMapping("getWithDate/")
-    public ResponseEntity<Data<TransactionGetDto>> getWithDate(){
-        return new ResponseEntity<>(new Data<>(transactionService.getWithDate()), HttpStatus.OK);
     }
 
 }
