@@ -16,7 +16,7 @@ import java.time.ZonedDateTime;
 @MappedSuperclass // BU anontation  Ota classdagi fieldlarni bola classlarga o'tkazib yuboradi
 @NoArgsConstructor
 @AllArgsConstructor
-@EntityListeners(AuditingEntityListener.class) // Entitylarni tekshirib turadigan class
+@EntityListeners(AuditingEntityListener.class)  // Entitylarni tekshirib turadigan class
 public class Auditable extends BaseEntity {
 
     @Id
@@ -37,6 +37,9 @@ public class Auditable extends BaseEntity {
 
     @LastModifiedDate
     private LocalDateTime updatedAt;
+
+
+
 
 
 

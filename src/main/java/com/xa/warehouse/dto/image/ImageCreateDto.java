@@ -13,13 +13,13 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ImageCreateDto extends BaseDto {
 
+
     private String originalName;
     private String generatedName;
     private String extension;
     private Long size;
     private String path;
     private String url;
-
 
 
 }

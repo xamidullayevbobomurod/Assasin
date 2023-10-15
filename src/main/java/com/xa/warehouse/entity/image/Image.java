@@ -1,7 +1,6 @@
 package com.xa.warehouse.entity.image;
 
 import com.xa.warehouse.entity.Auditable;
-import com.xa.warehouse.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;

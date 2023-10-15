@@ -18,8 +18,9 @@ import java.util.Optional;
 
 public class ProductService extends AbstractService<ProductMapper, ProductRepository> {
 
-    private final ProductRepository repository;
     private final ProductMapper mapper;
+    private final ProductRepository repository;
+
 
     public ProductService(ProductMapper mapper, ProductRepository repository, ProductRepository repository1, ProductMapper mapper1) {
         super(mapper, repository);
@@ -35,6 +36,7 @@ public class ProductService extends AbstractService<ProductMapper, ProductReposi
         }
         throw new NotFoundException(("Uses not found : " + id));
     }
+
 
 
     public ProductGetDto create(ProductCreateDto dto) {
