@@ -29,6 +29,6 @@ public class ProductCreateDto extends BaseDto {
     @NotNull(message = "Status must not be null")
     private String status;
     @NotNull(message = "Expired date must not be null")
-    private LocalDate expiredPate;
+    private LocalDate expiredDate;
 
 }

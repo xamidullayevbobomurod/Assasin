@@ -2,10 +2,7 @@ package com.xa.warehouse.entity.product;
 
 import com.xa.warehouse.entity.Auditable;
 import com.xa.warehouse.entity.image.Image;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,7 +42,7 @@ public class Product extends Auditable {
     @Column(nullable = false)
     private LocalDate expiredDate;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Image> images;
 
 

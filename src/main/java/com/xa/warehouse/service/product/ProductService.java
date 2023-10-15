@@ -41,6 +41,7 @@ public class ProductService extends AbstractService<ProductMapper, ProductReposi
 
     public ProductGetDto create(ProductCreateDto dto) {
         Product product = mapper.fromCreateDTO(dto);
+        product.setExpiredDate(dto.getExpiredDate());
         Product result = repository.save(product);
         if (Objects.isNull(result)) {
             throw new RuntimeException(("Couldn't create product'"));
