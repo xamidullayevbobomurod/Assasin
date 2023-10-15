@@ -20,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Where(clause = "is_deleted = false") // delete bo'lganlarni select qilmaydi
+@Where(clause = "is_deleted = false")
 public class Product extends Auditable {
 
     @Column(nullable = false)

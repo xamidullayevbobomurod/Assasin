@@ -1,6 +1,7 @@
 package com.xa.warehouse.dto.transaction.soldProduct;
 
 import com.xa.warehouse.dto.BaseDto;
+import com.xa.warehouse.dto.GenericDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SoldProductCreateDto extends BaseDto {
+public class SoldProductCreateDto extends GenericDto {
 
     private String name;
 

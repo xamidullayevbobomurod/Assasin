@@ -16,15 +16,6 @@ import lombok.Setter;
 @Entity
 public class Image extends Auditable {
 
-
-
-//        @Id
-//        @GeneratedValue(strategy = GenerationType.IDENTITY) // You can adjust the generation strategy as needed
-//        private Long id;
-//
-
-
-
     @Column(nullable = false)
     private String originalName;
 
