@@ -59,7 +59,8 @@ public class ProductService extends AbstractService<ProductMapper, ProductReposi
 
 
     public List<ProductGetDto> list() {
-        return mapper.toListDTO(repository.findAll());
+        List<Product> all = repository.findAll();
+        return mapper.toListDTO(all);
     }
 }
 

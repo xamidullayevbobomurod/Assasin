@@ -16,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProductGetDto extends GenericDto {
 
-    private List<ImageGetDto> image;
+    private List<ImageGetDto> images;
     private String name;
     private Integer amount;
     private Double purchasePrice;
