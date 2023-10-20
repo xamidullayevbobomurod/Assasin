@@ -6,7 +6,6 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-//public interface GenericMapper<CD extends BaseDto, UD extends GenericDto, GD extends GenericDto, E extends BaseEntity> extends BaseMapper{
 public interface GenericMapper<CD extends BaseDto, UD extends BaseDto, GD extends BaseDto, E extends BaseEntity> extends BaseMapper{
     E fromCreateDTO(CD createDTO);
 

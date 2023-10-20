@@ -7,10 +7,7 @@ import com.xa.warehouse.entity.image.Image;
 import com.xa.warehouse.mapper.GenericMapper;
 import org.mapstruct.Mapper;
 
-
 @Mapper(componentModel = "spring")
-public interface ImageMapper
-        extends GenericMapper<ImageCreateDto , ImageUpdateDto , ImageGetDto, Image> {
-
-
+public interface ImageMapper extends GenericMapper
+        <ImageCreateDto, ImageUpdateDto , ImageGetDto , Image> {
 }

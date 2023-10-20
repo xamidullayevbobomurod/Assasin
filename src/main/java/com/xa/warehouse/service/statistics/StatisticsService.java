@@ -7,7 +7,6 @@ import java.util.*;
 public class StatisticsService  {
 
 
-
     public double calculateMean(List<Double> numbers) {
         double sum = 0.0;
         for (double num : numbers) {

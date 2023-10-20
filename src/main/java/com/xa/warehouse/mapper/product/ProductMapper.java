@@ -12,5 +12,5 @@ import org.mapstruct.Mapper;
 public interface ProductMapper
         extends GenericMapper<ProductCreateDto, ProductUpdateDto, ProductGetDto, Product> {
 
-
 }
+

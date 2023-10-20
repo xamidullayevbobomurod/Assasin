@@ -1,6 +1,7 @@
 package com.xa.warehouse.controller.statistics;
 
 import com.xa.warehouse.service.statistics.StatisticsService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class StatisticsController {
     }
 
 
+
     @GetMapping("median/")
     public double calculateMedian(@RequestBody List<Double> numbers) {
         return statisticsService.calculateMedian(numbers);
@@ -43,22 +45,22 @@ public class StatisticsController {
 }
 
 
-//    @PostMapping("mean/")
+//    @GetMapping("mean/")
 //    public ResponseEntity<Double> calculateMean(@RequestBody List<Double> numbers) {
 //        return ResponseEntity.ok(statisticsService.calculateMean(numbers));
 //    }
 //
-//    @PostMapping("median/")
+//    @GetMapping("median/")
 //    public ResponseEntity<Double> calculateMedian(@RequestBody List<Double> numbers) {
 //        return ResponseEntity.ok(statisticsService.calculateMedian(numbers));
 //    }
 //
-//    @PostMapping("mode/")
+//    @GetMapping("mode/")
 //    public ResponseEntity<List<Double>> calculateMode(@RequestBody List<Double> numbers) {
 //        return ResponseEntity.ok(statisticsService.calculateMode(numbers));
 //    }
 //
-//    @PostMapping("range/")
+//    @GetMapping("range/")
 //    public ResponseEntity<Double> calculateRange(@RequestBody List<Double> numbers) {
 //        return ResponseEntity.ok(statisticsService.calculateRange(numbers));
 //    }
