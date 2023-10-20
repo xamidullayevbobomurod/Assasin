@@ -25,19 +25,16 @@ import java.util.Optional;
 @Transactional
 public class TransactionService extends AbstractService<TransactionMapper, TransactionRepository> {
 
-    private final SoldProductRepository SoldProductRepository;
-    private final SoldProductMapper SalesProductMapper;
+    private final SoldProductRepository soldProductRepository;
+    private final SoldProductMapper soldProductMapper;
     private final ProductRepository productRepository;
 
-    public TransactionService(TransactionMapper mapper, TransactionRepository repository, TransactionRepository transactionRepository, com.xa.warehouse.repository.SoldProductRepository soldProductRepository, TransactionMapper transactionMapper, SoldProductMapper salesProductMapper, ProductRepository productRepository) {
+    public TransactionService(TransactionMapper mapper, TransactionRepository repository, SoldProductRepository soldProductRepository, SoldProductMapper soldProductMapper, ProductRepository productRepository) {
         super(mapper, repository);
-        SoldProductRepository = soldProductRepository;
-        SalesProductMapper = salesProductMapper;
+        this.soldProductRepository = soldProductRepository;
+        this.soldProductMapper = soldProductMapper;
         this.productRepository = productRepository;
     }
-
-
-
 
 
     public TransactionGetDto create(TransactionCreateDto dto) {
@@ -57,9 +54,10 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
                 throw new NotFoundException("Check product please:" + s.getId());
             }
         }
-        productRepository.saveAll(products);
-        transaction.setSoldProducts(soldProducts);
+        List<SoldProduct> soldProductsList = soldProductRepository.saveAll(soldProducts);
+        transaction.setSoldProducts(soldProductsList);
         Transaction result = repository.save(transaction);
+        productRepository.saveAll(products);
         return mapper.toGetDTO(result);
     }
 
