@@ -13,6 +13,7 @@ import com.xa.warehouse.repository.ProductRepository;
 import com.xa.warehouse.repository.SoldProductRepository;
 import com.xa.warehouse.repository.TransactionRepository;
 import com.xa.warehouse.service.AbstractService;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.*;
@@ -21,6 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TransactionService extends AbstractService<TransactionMapper, TransactionRepository> {
 
     private final SoldProductRepository SoldProductRepository;
@@ -40,6 +42,7 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
 
     public TransactionGetDto create(TransactionCreateDto dto) {
         List<Product> products = new ArrayList<Product>();
+        List<SoldProduct> soldProducts = new ArrayList<>();
 
         Transaction transaction = mapper.fromCreateDTO(dto);
         for (SoldProduct s : transaction.getSoldProducts()) {
@@ -48,11 +51,14 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
                 Product product = p.get();
                 product.setAmount(product.getAmount() - s.getAmount());
                 products.add(product);
+                s.setId(null);
+                soldProducts.add(s);
             } else {
                 throw new NotFoundException("Check product please:" + s.getId());
             }
         }
         productRepository.saveAll(products);
+        transaction.setSoldProducts(soldProducts);
         Transaction result = repository.save(transaction);
         return mapper.toGetDTO(result);
     }

@@ -20,7 +20,7 @@ import java.util.List;
 @Entity
 public class Transaction extends Auditable {
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany
     private List<SoldProduct> soldProducts;
 
 
