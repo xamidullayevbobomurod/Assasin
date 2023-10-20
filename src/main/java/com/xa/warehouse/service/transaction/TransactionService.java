@@ -44,7 +44,7 @@ public class TransactionService extends AbstractService<TransactionMapper, Trans
         Transaction transaction = mapper.fromCreateDTO(dto);
         for (SoldProduct s : transaction.getSoldProducts()) {
             Optional<Product> p = productRepository.findById(s.getId());
-            if (p.isPresent() && p.get().getStatus().equals("active") && p.get().getAmount() >= s.getAmount() && (p.get().getExpiredDate().isBefore(LocalDate.now()))) {
+            if (p.isPresent() && p.get().getStatus().equals("active") && p.get().getAmount() >= s.getAmount() && (p.get().getExpiredDate().isAfter(LocalDate.now()))) {
                 Product product = p.get();
                 product.setAmount(product.getAmount() - s.getAmount());
                 products.add(product);

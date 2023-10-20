@@ -13,7 +13,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("api/v1/transaction/")
 public class TransactionController {
 
-    private TransactionService transactionService;
+    private final TransactionService transactionService;
+
+    public TransactionController(TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
 
     @PostMapping("create/")
     public ResponseEntity<Data<TransactionGetDto>> create(@RequestBody TransactionCreateDto createDto) {
